@@ -5,15 +5,17 @@
 #include "Grid.h"
 
 class GameOfLife {
+
 public:
-	GameOfLife(Uint16 cellSize, Uint16 windowSize, Uint16 cellColor, Uint16 windowColor);
-	void start(Uint32 updateRate);
-	SDL_Window* getWindow();
-	void handleInput();
-	void updateState();
-	void drawCurrentState();
-	bool isRunning() {return running;}
+	GameOfLife(Uint16 cellSize, Uint16 windowSize, 
+				Uint16 cellColor, Uint16 windowColor);
+
+	void start(Uint16 stepTimeInMilliseconds);
+	void update();
 	void close();
+
+	bool isRunning() {return running;}
+	SDL_Window* getWindow() {return window;}
 
 private:
 	SDL_Window* window;
@@ -25,11 +27,13 @@ private:
 	bool mouseDown;
 	bool running;
 
-	Uint32 updateRate;
+	Uint16 stepTimeInMilliseconds;
 	Uint32 timeOflastUpdate;
 	SDL_Event e;
 
 	void initializeSDL();
+	void handleInput();
+	void drawCurrentState();
 };
 
 #endif

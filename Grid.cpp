@@ -29,7 +29,7 @@ void Grid::toggleCell(int x, int y) {
 	currentState[x][y] = !currentState[x][y];
 }
 
-void Grid::clear() {
+void Grid::clearGrid() {
 	for(int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
 			currentState[i][j] = false;
@@ -50,7 +50,7 @@ void Grid::update() {
 }
 
 
-bool Grid::getCellStatus(int x, int y) {
+bool Grid::cellIsLiving(int x, int y) {
 	if(x < 0 || y < 0 || x >= size || y >= size){
 		return false;
 	}
@@ -59,14 +59,14 @@ bool Grid::getCellStatus(int x, int y) {
 
 int Grid::countLiveNeighbors(int x, int y) {
 	int sum = 0;
-	sum+= getCellStatus(x  , y+1);
-	sum+= getCellStatus(x  , y-1);
-	sum+= getCellStatus(x-1, y);
-	sum+= getCellStatus(x+1, y);
-	sum+= getCellStatus(x-1, y+1);
-	sum+= getCellStatus(x+1, y+1);
-	sum+= getCellStatus(x-1, y-1);
-	sum+= getCellStatus(x+1, y-1);
+	sum+= cellIsLiving(x  , y+1);
+	sum+= cellIsLiving(x  , y-1);
+	sum+= cellIsLiving(x-1, y);
+	sum+= cellIsLiving(x+1, y);
+	sum+= cellIsLiving(x-1, y+1);
+	sum+= cellIsLiving(x+1, y+1);
+	sum+= cellIsLiving(x-1, y-1);
+	sum+= cellIsLiving(x+1, y-1);
 	return sum;
 }
 

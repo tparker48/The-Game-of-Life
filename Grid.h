@@ -6,13 +6,14 @@
 
 class Grid {
 public:
+	Grid();
 	Grid(std::size_t size);
 	~Grid();
 
 	void toggleCell(int x, int y);
-	void clear();
+	void clearGrid();
 	void update();
-	bool getCellStatus(int x, int y);
+	bool cellIsLiving(int x, int y);
 
 private:
 	int countLiveNeighbors(int x, int y);
