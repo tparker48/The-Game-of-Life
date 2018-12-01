@@ -11,6 +11,7 @@ public:
 	~Grid();
 
 	void toggleCell(int x, int y);
+	void setCell(int x, int y, bool state);
 	void clearGrid();
 	void update();
 	bool cellIsLiving(int x, int y);

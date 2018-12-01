@@ -29,6 +29,10 @@ void Grid::toggleCell(int x, int y) {
 	currentState[x][y] = !currentState[x][y];
 }
 
+void Grid::setCell(int x, int y, bool state){
+	currentState[x][y] = state;
+}
+
 void Grid::clearGrid() {
 	for(int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {

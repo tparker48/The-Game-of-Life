@@ -14,7 +14,7 @@ public:
 	void update();
 	void close();
 
-	bool isRunning() {return running;}
+	bool isRunning() {return !quit;}
 	SDL_Window* getWindow() {return window;}
 
 private:
@@ -25,7 +25,8 @@ private:
 	Uint16 windowSize, windowColor;
 	Uint16 gridSize;
 	bool mouseDown;
-	bool running;
+	bool paused;
+	bool quit;
 
 	Uint16 stepTimeInMilliseconds;
 	Uint32 timeOflastUpdate;
